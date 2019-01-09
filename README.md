@@ -1,7 +1,7 @@
 # \<arduino-connection\>
 
 ![Polymer 2 badged](https://img.shields.io/badge/Polymer-2.x-green.svg)
-[![Build Status](https://travis-ci.org/HAlejandro88/language-element.svg?branch=master)](https://travis-ci.org/HAlejandro88/language-element)
+[![Build Status](https://travis-ci.org/HAlejandro88/arduino-component.svg?branch=master)](https://travis-ci.org/HAlejandro88/arduino-component)
 
 
 ## Install the Polymer-CLI

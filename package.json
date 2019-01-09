@@ -1,0 +1,31 @@
+{
+  "name": "arduino-connection",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/wct",
+    "coverage": "open coverage/lcov-report/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HAlejandro88/arduino-component.git"
+  },
+  "keywords": [
+    "polymer2",
+    "element"
+  ],
+  "author": "@HAlejandro88",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HAlejandro88/arduino-component/issues"
+  },
+  "homepage": "https://github.com/HAlejandro88/arduino-component#readme",
+  "devDependencies": {
+    "web-component-tester": "git+https://github.com/t2ym/web-component-tester.git#wct6-plugin",
+    "web-component-tester-istanbul": "git+https://github.com/t2ym/web-component-tester-istanbul.git#0.10.1-wct6.8"
+  }
+}
