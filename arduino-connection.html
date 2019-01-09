@@ -1,0 +1,217 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../iron-ajax/iron-ajax.html">
+<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../paper-input/paper-input.html">
+<dom-module id="arduino-connection">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+     .container {
+        background-size: cover;
+        padding: 20px;
+        display: block;
+      }
+
+      .led-box {
+        height: 30px;
+        width: 25%;
+        margin: 10px 0;
+        float: left;
+      }
+
+      #beta{
+        display: none;
+      }
+
+      #ocultar{
+        display: none;
+      }
+      paper-button.bet{
+        color:black;
+
+      }
+      paper-button.bet:hover{
+        color:red;
+        font-size: 15px;
+      }         
+      paper-button.led-red {
+        margin: 0 auto;
+        width: 24px;
+        height: 24px;
+        background-color: #F00;
+        border-radius: 50%;
+        box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #441313 0 -1px 9px, rgba(255, 0, 0, 0.5) 0 2px 12px;
+        color: white;
+
+      }
+
+      paper-button.led-green {
+        margin: 0 auto;
+        width: 24px;
+        height: 24px;
+        background-color: #ABFF00;
+        border-radius: 50%;
+        box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #304701 0 -1px 9px, #89FF00 0 2px 12px;
+        color:rgb(141, 141, 141);
+      }
+
+      paper-button.led-yellow {
+        margin: 0 auto;
+        width: 24px;
+        height: 24px;
+        background-color: #FF0;
+        border-radius: 50%;
+        box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #304701 0 -1px 9px, #89FF00 0 2px 12px;
+        color:rgb(141, 141, 141);
+      }
+
+      paper-button.led-blue{
+      margin: 0 auto;
+      width: 24px;
+      height: 24px;
+      background-color: #24E0FF;
+      border-radius: 50%;
+      box-shadow: rgba(6, 110, 180, 0.2) 0 -1px 7px 1px, inset #006 0 -1px 9px, #3F8CFF 0 2px 14px;
+      }
+
+      paper-button.led-blue:hover{
+         background-color: #029fdb;
+         font-size: 15px;
+         font-family: Arial, Helvetica, sans-serif;
+         color:#000dae;
+      }
+    </style>
+    <iron-ajax
+      id="json"
+      url = "{{url}}"
+      handle-as="json"
+      on-response="_getLed"
+      on-error="_errorResponse">
+    </iron-ajax>
+    <div>
+      <h2>Para probar la opcion beta de Lcd pulse</h2>
+      <paper-button on-tap="show" class="bet" id="probar" >Beta</paper-button>
+      <paper-button on-tap="hidden" id="ocultar">Cerrar beta</paper-button>
+    </div>
+    <div id="beta">
+      <paper-input label="Escribe en LCD" value="{{lcd}}"></paper-input>
+    </div>
+    <div class="container"> 
+      <div class="led-box">
+        <paper-button on-tap="high" class="led-red">Led1</paper-button>
+      </div>
+      <div class="led-box">
+          <paper-button on-tap="low" class="led-green">Led2</paper-button>
+      </div>
+      <div class="led-box">
+        <paper-button on-tap="lcd" class="led-blue">lcd</paper-button>
+      </div>
+    </div> 
+    
+  </template>
+
+  <script>
+    /**
+     * `arduino-connection`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class ArduinoConnection extends Polymer.Element {
+      static get is() { return 'arduino-connection'; }
+      static get properties() {
+        return {
+          prop1: {
+            type: String,
+            value: 'arduino-connection'
+          },
+          url:{
+            type: String,
+            value:''
+          },
+          lcd:{
+            type: String,
+            value:''
+          }
+        };
+      }
+      high(){
+        this.set("url",'http://localhost:3000/green');
+        console.log(this.url);
+        this.dispatchEvent(new CustomEvent("led-change",{
+        bubbles:false,
+        composed:false,
+        detail:this.url
+        }));
+        this.$.json.generateRequest();
+      }
+      low(){
+        this.set("url",'http://localhost:3000/led/red');
+        console.log(this.url);
+        this.dispatchEvent(new CustomEvent("led-change",{
+          bubbles:false,
+          composed:false,
+          detail:this.url
+        }));
+        this.$.json.generateRequest();
+      }
+
+      lcd(){
+        this.set("url",'http://localhost:3000/lcd/'+this.lcd);
+        console.log(this.url);
+        this.dispatchEvent(new CustomEvent("lcd-clicked",{
+          bubbles:false,
+          composed:false,
+          detail:this.url
+        }));
+        this.$.json.generateRequest();
+      }
+
+
+
+      _getLed(event){
+        console.log(event.detail.response);
+        
+      }
+
+      _errorResponse(){
+        const error  =this.$.json.lastError;
+        console.log(error);
+        this.dispatchEvent(new CustomEvent('arduino-request.error',{
+          bubbles: false,
+          composed: false,
+          detail:{
+            url : this.url
+          }
+        }));
+      }
+
+      /* changedLcd(){
+        console.log(this.lcd);
+        this.set("url","http://localhost:3000/lcd/"+this.lcd)
+        this.$.json.generateRequest();
+      } */
+
+      show(){
+        const showme = this.shadowRoot.querySelector('#beta');
+        showme.style.display = "block";
+        this.shadowRoot.querySelector('#ocultar').style.display = "block";
+        this.shadowRoot.querySelector('#probar').style.display = "none";
+
+      }
+      hidden(){
+        const  hiddme = this.shadowRoot.querySelector('#beta');
+        hiddme.style.display = "none";
+         this.shadowRoot.querySelector('#ocultar').style.display = "none"
+         this.shadowRoot.querySelector('#probar').style.display = "block";
+      }
+      
+    }
+
+    window.customElements.define(ArduinoConnection.is, ArduinoConnection);
+  </script>
+</dom-module>

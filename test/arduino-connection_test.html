@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>arduino-connection test</title>
+
+    <script src="../../webcomponentsjs/webcomponents-loader.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+
+    <link rel="import" href="../arduino-connection.html">
+  </head>
+  <body>
+
+    <test-fixture id="ledEvent">
+      <template>
+        <arduino-connection url="http://localhost:3000/green"></arduino-connection>
+      </template>
+    </test-fixture>
+
+    <test-fixture id="changeEvent">
+      <template>
+        <arduino-connection url="http://localhost:3000/led/red"></arduino-connection>
+      </template>
+    </test-fixture>
+
+    
+
+    <script>
+      suite('arduino-connection', () => {
+
+        test('checking led event is firing', (done) => {
+          const arduinoComponent = fixture('ledEvent');
+          arduinoComponent.addEventListener("led-change",(event)=>{
+            assert.equal(event.detail,"http://localhost:3000/green")
+            done();
+          });
+          arduinoComponent.high();
+        });
+
+        test('ckecking led event is changed', (done)=>{
+          const arduinoComponent = fixture('changeEvent');
+          arduinoComponent.addEventListener("led-change",(event)=>{
+            assert.equal(event.detail,"http://localhost:3000/led/red")
+            done();
+          });
+          arduinoComponent.low();
+        });
+
+
+      });
+    </script>
+
+  </body>
+</html>
