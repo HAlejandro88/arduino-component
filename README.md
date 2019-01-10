@@ -3,12 +3,12 @@
 ![Polymer 2 badged](https://img.shields.io/badge/Polymer-2.x-green.svg)
 [![Build Status](https://travis-ci.org/HAlejandro88/arduino-component.svg?branch=master)](https://travis-ci.org/HAlejandro88/arduino-component)
 
- ##Properties
+ ### Properties
      
-     |   Properties           Value                      Description
-     | ---------------|------------------|---------------------------------------------------|
-     |      url                ""              define la url for request of the arduino
-     |     lcd                ""              define the paragraph to write on the lcd
+  |   Properties           Value                      Description
+  | ---------------|------------------|---------------------------------------------------|
+  |      url                ""              define la url for request of the arduino
+  |     lcd                ""              define the paragraph to write on the lcd
       
       
  ### Events
@@ -18,7 +18,7 @@
      |    led-change       changes the element of the arduino selected, in this case led-red
      |    led-change       changes the element of the arduino selected, in this case led-green
      |   lcd-clicked       print on the lcd screen what you wrote in the text field
-###Styles
+### Styles
      
       
      *       Name                |       Type        |             Use in case
