@@ -20,13 +20,13 @@
 | lcd-clicked | print on the lcd screen what you wrote in the text field         |   
 
 ### Styles
-| Name                      | Type  | Use in case                                               |   |   |   |
-|---------------------------|-------|-----------------------------------------------------------|---|---|---|
-| -arduino-led1-style       | Mixin | change  style for led1                                    |   |   |   |
-| --arduino-led2-style      | Mixin | change  style for led2                                    |   |   |   |
-| --arduino-element-style   | Mixin | change style for lcd                                      |   |   |   |
-| --button--background-size | var   | change style for background-size in the conteiner elemnts |
 
+| Name                      | Type  | Use in case                                               |
+|---------------------------|-------|-----------------------------------------------------------|
+| -arduino-led1-style       | Mixin | change  style for led1                                    |
+| --arduino-led2-style      | Mixin | change  style for led2                                    |
+| --arduino-element-style   | Mixin | change style for lcd                                      |
+| --button--background-size | var   | change style for background-size in the conteiner elemnts |
 
 ## Install the Polymer-CLI
 
