@@ -5,10 +5,11 @@
 
  ### Properties
      
-    |   Properties           Value                      Description
-    | ---------------|------------------|---------------------------------------------------|
-    |      url       |       ""         |    define la url for request of the arduino
-    |     lcd        |       ""         |    define the paragraph to write on the lcd
+| Properties | Value | Description          |   
+|------------|-------|----------------------|
+| url        | ""    | define url           |
+| lcd        | ""    | define the paragraph |
+|            |       |                      |
       
       
  ### Events
