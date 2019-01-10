@@ -9,26 +9,23 @@
 |------------|-------|----------------------|
 | url        | ""    | define url           |
 | lcd        | ""    | define the paragraph |
-|            |       |                      |
       
       
  ### Events
      
-    |        Event                             Descriptionof event
-    |-------------------|--------------------------------------------------------------------|
-    |    led-change      |changes the element of the arduino selected, in this case led-red  |
-    |    led-change      |changes the element of the arduino selected, in this case led-green|
-    |   lcd-clicked      |print on the lcd screen what you wrote in the text field    
+| Event       | Description of event                                             |
+|-------------|------------------------------------------------------------------|
+| led-change  | changes the element the arduino selected, in this case led-red   |
+| led-change  | changes the element the arduino selected, in this case led-green |
+| lcd-clicked | print on the lcd screen what you wrote in the text field         |   
 
 ### Styles
-     
-      
-    Name                   |       Type        |             Use in case
----------------------------|-------------------|---------------------------------------------------|
-`  --arduino-led1-style    |       Mixin       |     change  style for led1 `                      |
-`  --arduino-led2-style    |        Mixin      |     change  style for led2 `                      |
-` --arduino-element-style  |       Mixin       |   change style for lcd `                          |
-` --button--background-size|      var          | change style for background-size in the conteiner                                                      elemnts `                                         |
+| Name                      | Type  | Use in case                                               |   |   |   |
+|---------------------------|-------|-----------------------------------------------------------|---|---|---|
+| -arduino-led1-style       | Mixin | change  style for led1                                    |   |   |   |
+| --arduino-led2-style      | Mixin | change  style for led2                                    |   |   |   |
+| --arduino-element-style   | Mixin | change style for lcd                                      |   |   |   |
+| --button--background-size | var   | change style for background-size in the conteiner elemnts |
 
 
 ## Install the Polymer-CLI
