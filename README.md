@@ -27,9 +27,9 @@
 | --arduino-led2-style      | Mixin | change  style for led2                                    |
 | --arduino-element-style   | Mixin | change style for lcd                                      |
 | --button--background-size | var   | change style for background-size in the conteiner elemnts |
-| --container-padding       | var   | change  style for led2                                    |
-| --ledbox-height           | var   | change style for lcd                                      |
-| --ledbox-with             | var   | change style for background-size in the conteiner elemnts |
+| --container-padding       | var   | change padding for container  buttons                     |
+| --ledbox-height           | var   | change heigh for led                                      |
+| --ledbox-with             | var   | change with for led                                       |
 
 ## Install the Polymer-CLI
 
