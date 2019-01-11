@@ -118,44 +118,42 @@
   </template>
 
   <script>
-    /**
-     * `arduino-connection` is a web conencion. it is used when the client connects its arduino (any of its names)
-     *and sends a signal to turn on or off any material to connect
-     *Example:
-     * <arduino-connection url="http://localhost:3000/led/red"></arduino-connection>
-     *###Properties
-     * 
-     *| Properties | Value | Description          |
-     *|------------|-------|----------------------|
-     *| url        | ""    | define url           |
-     *| lcd        | ""    | define the paragraph |
-     * 
-     * 
-     *### Events
-     *
-     *| Event       | Description of event                                             |
-     *|-------------|------------------------------------------------------------------|
-     *| led-change  | changes the element the arduino selected, in this case led-red   |
-     *| led-change  | changes the element the arduino selected, in this case led-green |
-     *| lcd-clicked | print on the lcd screen what you wrote in the text field         |
-     * 
-     *### Styles
-     *
-     *| Name                      | Type  | Use in case                                               |
-     *|---------------------------|-------|-----------------------------------------------------------|
-     *| -arduino-led1-style       | Mixin | change  style for led1                                    |
-     *| --arduino-led2-style      | Mixin | change  style for led2                                    |
-     *| --arduino-element-style   | Mixin | change style for lcd                                      |
-     *| --button--background-size | var   | change style for background-size in the conteiner elemnts |
-     *| --container-padding       | var   | change padding for container  buttons                     |
-     *| --ledbox-height           | var   | change heigh for led                                      |
-     *| --ledbox-with             | var   | change with for led                                       |
-     * 
-     * 
-     * @customElement
-     * @polymer
-     * @demo demo/index.html
-     */
+
+  /**
+   * `arduino-connection` is a web conencion. it is used when the client connects its arduino (any of its names)
+   * and sends a signal to turn on or off any material to connect
+   * Example:
+   * <arduino-connection url="http://localhost:3000/led/red"></arduino-connection>
+   * ###Properties
+
+    * | Properties | Value | Description          |
+    * |------------|-------|----------------------|
+    * | url        | ""    | define url           |
+    * | lcd        | ""    | define the paragraph |
+    
+    * ### Events
+    
+    * | Event       | Description of event                                             |
+    * |-------------|------------------------------------------------------------------|
+    * | led-change  | changes the element the arduino selected, in this case led-red   |
+    * | led-change  | changes the element the arduino selected, in this case led-green |
+    * | lcd-clicked | print on the lcd screen what you wrote in the text field         |
+  
+    * ### Styles
+    
+    * | Name                      | Type  | Use in case                                               |
+    * |---------------------------|-------|-----------------------------------------------------------|
+    * | -arduino-led1-style       | Mixin | change  style for led1                                    |
+    * | --arduino-led2-style      | Mixin | change  style for led2                                    |
+    * | --arduino-element-style   | Mixin | change style for lcd                                      |
+    * | --button--background-size | var   | change style for background-size in the conteiner elemnts |
+    * | --container-padding       | var   | change padding for container  buttons                     |
+    * | --ledbox-height           | var   | change heigh for led                                      |
+    * | --ledbox-with             | var   | change with for led                                       |
+    * @customElement
+    * @polymer
+    * @demo demo/index.html
+    */
     class ArduinoConnection extends Polymer.Element {
       static get is() { return 'arduino-connection'; }
       static get properties() {
