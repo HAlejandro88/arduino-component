@@ -2,6 +2,8 @@
 <link rel="import" href="../iron-ajax/iron-ajax.html">
 <link rel="import" href="../paper-button/paper-button.html">
 <link rel="import" href="../paper-input/paper-input.html">
+<link rel="import" href="../iron-icons/iron-icons.html">
+
 <dom-module id="arduino-connection">
   <template>
     <style>
@@ -74,6 +76,8 @@
       margin: 0 auto;
       width: 24px;
       height: 24px;
+      text-align: center;
+      color:#026891;
       background-color: #24E0FF;
       border-radius: 50%;
       box-shadow: rgba(6, 110, 180, 0.2) 0 -1px 7px 1px, inset #006 0 -1px 9px, #3F8CFF 0 2px 14px;
@@ -86,7 +90,9 @@
          font-family: Arial, Helvetica, sans-serif;
          color:#000dae;
       }
-      
+      h1{
+        color:#47579e;
+      }
     </style>
     <iron-ajax
       id="json"
@@ -95,10 +101,11 @@
       on-response="_getLed"
       on-error="_errorResponse">
     </iron-ajax>
+    <h1><iron-icon icon="icons:settings-input-composite"></iron-icon>  Arduino-Polymer  <iron-icon icon="icons:polymer"></iron-icon></h1>
     <div>
-      <h2>Para probar la opcion beta de Lcd pulsar</h2>
-      <paper-button on-tap="show" class="bet" id="probar" >Probar Beta</paper-button>
-      <paper-button on-tap="hidden" id="ocultar">Cerrar beta</paper-button>
+      <h3>Para probar la opcion beta de Lcd pulsar</h3>
+      <paper-button on-tap="show" class="bet" id="probar" ><iron-icon icon="icons:visibility"></iron-icon>Probar Beta </paper-button>
+      <paper-button on-tap="hidden" id="ocultar"><iron-icon icon="icons:visibility-off"></iron-icon>Cerrar beta</paper-button>
     </div>
     <div id="beta">
       <paper-input label="Escribe en LCD" value="{{lcd}}"></paper-input>
@@ -111,7 +118,7 @@
           <paper-button on-tap="low" class="led-green">Led2</paper-button>
       </div>
       <div class="led-box">
-        <paper-button on-tap="lcd" class="led-blue">lcd</paper-button>
+        <paper-button on-tap="lcd" class="led-blue"><iron-icon icon="icons:send"></iron-icon></paper-button>
       </div>
     </div> 
     
